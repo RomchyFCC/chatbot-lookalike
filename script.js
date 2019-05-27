@@ -15,5 +15,17 @@ var frodx_chatBot = function (object) {
 frodx_chatBot({
   pid: 457896,
   backgroundColor: "red",
-  autoOpen: true
+  autoOpen: true,
+  borderColor: "#fff",
+  borderWidth: 2,
+  chatBotName: "Roman's chatbot",
+  personName: ["Roman", "David", "Andrej"],
+  iconColor: "#000",
+  textColor: "#123",
+  imageUrl: "https://www.romanstruna.com/public/roman-struna-thumbnail.jpg",
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  chatSize: "small"
 })
