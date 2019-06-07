@@ -2,7 +2,7 @@ var frodx_chatBot = function (object) {
   var resultObject = {};
   resultObject.id = "nr_integrated_cb";
   resultObject.class = "fx-cb-div";
-  var hexPattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
+  var hexPattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/;
   if (!object.pid || typeof(object.pid) !== 'number' || object.pid.toString().length !== 6) {
     return;
   } else {
@@ -19,6 +19,16 @@ var frodx_chatBot = function (object) {
     resultObject["auto-open"] = false;
     console.log('error with auto open')
   }
+  if (!hexPattern.test(object.borderColor)) {
+    console.log('error with border color')
+  } else {
+    resultObject["borderColor"] = object.borderColor;
+  }
+  if (isNaN(object.borderWidth) === false) {
+    resultObject["borderWidth"] = object.borderWidth + 'px'; // if 0 remove px TODO
+  } else {
+    console.log('error with border width')
+  }
   console.log(object.name, this);
   $('<div/>', resultObject).appendTo('body');
   $("#nr_integrated_cb").load("new.html");
@@ -34,7 +44,7 @@ frodx_chatBot({
   personName: ["Roman", "David", "Andrej"],
   iconColor: "#000",
   textColor: "#123",
-  imageUrl: "https://www.romanstruna.com/public/roman-struna-thumbnail.jpg",
+  imageUrl: "https://www.romanstruna.com/public/Roman-Struna-thumbnail.jpg",
   top: 0,
   left: 0,
   bottom: 0,
